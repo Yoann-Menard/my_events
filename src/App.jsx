@@ -5,8 +5,8 @@ import ApiTest from "./components/ApiTest";
 export default function App() {
   return (
     <div className="App">
-      {/* <HomePage /> */}
-      <ApiTest />
+      <HomePage />
+      {/* <ApiTest /> */}
     </div>
   );
 }

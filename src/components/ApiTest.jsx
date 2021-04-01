@@ -30,7 +30,7 @@ export default function ApiTest() {
 
   return (
     <div>
-      <h1> Test de l'API Github commit history </h1>
+      <h1> Test de l'API Github commit search </h1>
       {isLoading && <p>Chargement...</p>}
 
       {commitHistory.length !== 0 && (
@@ -45,6 +45,7 @@ export default function ApiTest() {
                 <h2 style={{ textDecoration: "Underline" }}>
                   {c.commit.committer.name}
                 </h2>
+                <h2>{c.commit.committer.email}</h2>
                 <p>{c.commit.message}</p>
               </div>
               <hr />
