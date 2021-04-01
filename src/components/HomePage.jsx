@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { layoutGenerator } from "react-break";
 
 export default function HomePage() {
   const [dataset, setDataset] = useState(1);
@@ -23,6 +24,7 @@ export default function HomePage() {
   return (
     <div>
       <h1>opendata paris API</h1>
+      <br />
       {isLoading && <p>Chargement...</p>}
 
       {datasetHistory.length !== 0 && (
@@ -31,15 +33,15 @@ export default function HomePage() {
 
       {datasetHistory.map((d, index) => (
         <div key={index}>
-          {d.dataset && (
+          {d.datasetid && (
             <>
               <div>
-                <h2 style={{ textDecoration: "Underline" }}>
-                  {d.datasets.datasetid}
-                </h2>
-                <p>{d.datasets.fields}</p>
+                <h2 style={{ textDecoration: "Underline" }}>{d.datasetid}</h2>
+                <h3 style={{ backgroundColor: "grey" }}>{d.metas.publisher}</h3>
+                <h4 style={{ color: "red" }}>{d.metas.title}</h4>
               </div>
               <hr />
+              <br />
             </>
           )}
         </div>
