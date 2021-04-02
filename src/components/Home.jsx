@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Menu from "./Menu";
 import { layoutGenerator } from "react-break";
 
-export default function HomePage() {
+export default function Home() {
   const [dataset, setDataset] = useState(1);
   const [datasetHistory, setDatasetHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
