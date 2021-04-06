@@ -5,7 +5,6 @@ import Member from "./components/Member";
 import Organize from "./components/Organize";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { layoutGenerator } from "react-break";
 
 import "./App.css";
 

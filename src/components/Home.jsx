@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Menu from "./Menu";
-import { layoutGenerator } from "react-break";
+import { Media } from "react-breakpoints";
 
 export default function Home() {
   const [dataset, setDataset] = useState(1);
@@ -23,30 +23,40 @@ export default function Home() {
   }, [dataset]);
 
   return (
-    <div>
-      <h1>opendata paris API</h1>
-      <br />
-      {isLoading && <p>Chargement...</p>}
+    <>
+      <Media>
+        {({ breakpoints, currentBreakpoint }) =>
+          breakpoints[currentBreakpoint] > breakpoints.desktop
+        }
+      </Media>
 
-      {datasetHistory.length !== 0 && (
-        <button onClick={loadMoreDataset}>Charger plus d'éléments</button>
-      )}
+      <div>
+        <h1>opendata paris API</h1>
+        <br />
+        {isLoading && <p>Chargement...</p>}
 
-      {datasetHistory.map((d, index) => (
-        <div key={index}>
-          {d.datasetid && (
-            <>
-              <div>
-                <h2 style={{ textDecoration: "Underline" }}>{d.datasetid}</h2>
-                <h3 style={{ backgroundColor: "grey" }}>{d.metas.publisher}</h3>
-                <h4 style={{ color: "red" }}>{d.metas.title}</h4>
-              </div>
-              <hr />
-              <br />
-            </>
-          )}
-        </div>
-      ))}
-    </div>
+        {datasetHistory.length !== 0 && (
+          <button onClick={loadMoreDataset}>Charger plus d'éléments</button>
+        )}
+
+        {datasetHistory.map((d, index) => (
+          <div key={index}>
+            {d.datasetid && (
+              <>
+                <div>
+                  <h2 style={{ textDecoration: "Underline" }}>{d.datasetid}</h2>
+                  <h3 style={{ backgroundColor: "grey" }}>
+                    {d.metas.publisher}
+                  </h3>
+                  <h4 style={{ color: "red" }}>{d.metas.title}</h4>
+                </div>
+                <hr />
+                <br />
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
