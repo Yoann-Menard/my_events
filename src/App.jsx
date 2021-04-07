@@ -4,9 +4,9 @@ import Event from "./components/Event";
 import Member from "./components/Member";
 import Organize from "./components/Organize";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import "./App.css";
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 export default function App() {
   return (

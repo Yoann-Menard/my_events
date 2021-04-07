@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+.filter {
+  max-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /* Desktop */
 /* @media only screen and (min-device-width: 1024px) and (max-width: 2160px) {
 } */

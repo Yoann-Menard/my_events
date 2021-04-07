@@ -31,7 +31,8 @@ export default function Home() {
       </Media>
 
       <div>
-        <h1>opendata paris API</h1>
+        <Menu />
+        <h1>Events à venir</h1>
         <br />
         {isLoading && <p>Chargement...</p>}
 
@@ -52,6 +53,9 @@ export default function Home() {
                 </div>
                 <hr />
                 <br />
+                <button type="button" className="learnmore">
+                  <a href="/events">En savoir +</a>
+                </button>
               </>
             )}
           </div>
