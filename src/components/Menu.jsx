@@ -1,24 +1,22 @@
-export default function Menu() {
-  const handleClick = (e) => {
-    console.log("Je clique sur categories", e);
-  };
+import { useState } from "react";
 
-  const handleClickAgain = (name, e) => {
-    console.log("hello " + name, e.target);
+export default function Menu() {
+  const [categorie, setCategorie] = useState();
+
+  const handleClick = (e) => {
+    setCategorie(categorie);
+    console.log(categorie);
+    console.log("Je clique sur categorie", e);
   };
 
   return (
     <div className="filter">
       <h2>Filtres</h2>
-      <input
-        type="button"
+      <option
         onClick={handleClick}
         className="categories"
         value="Catégories"
-      ></input>
-      <button onClick={(e) => handleClickAgain("mario", e)}>
-        Click me again
-      </button>
+      ></option>
     </div>
   );
 }

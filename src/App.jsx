@@ -1,12 +1,10 @@
 import Header from "./components/Header";
 import Home from "./components/Home";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Event from "./components/Event";
 import Member from "./components/Member";
 import Organize from "./components/Organize";
-
-import "./App.css";
-
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NotFound from "./NotFound";
 
 export default function App() {
   return (
@@ -18,7 +16,7 @@ export default function App() {
             <Route exact path="/home">
               <Home />
             </Route>
-            <Route exact path="/event">
+            <Route path="/event">
               <Event />
             </Route>
             <Route exact path="/member">
@@ -26,6 +24,9 @@ export default function App() {
             </Route>
             <Route exact path="/organize">
               <Organize />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </div>

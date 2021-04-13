@@ -3,7 +3,7 @@ export default function Header() {
     <div>
       <header>
         <nav className="header">
-          <iframe width="999">
+          <iframe title="header" width="999">
             <div className="logo"></div>
           </iframe>
         </nav>
