@@ -7,7 +7,7 @@ const EventList = (props) => {
     <div className="event-list">
       {events.map((event) => (
         <div className="event-preview" key={event.id}>
-          <h1 style={{ color: "red" }}>{event.metas.title}</h1>
+          <h1 style={{ color: "purple" }}>{event.metas.title}</h1>
           <h2 style={{ textDecoration: "underline" }}>{event.datasetid}</h2>
           <p style={{ backgroundColor: "cyan" }}>{event.metas.publisher}</p>
           <hr />

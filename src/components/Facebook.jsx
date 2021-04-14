@@ -1,7 +1,7 @@
 import FacebookLogin from "react-facebook-login";
 
-const Facebook = () => {
-  const state = {
+export default function Facebook() {
+  let state = {
     isLoggedIn: false,
     userID: "",
     name: "",
@@ -14,11 +14,33 @@ const Facebook = () => {
   };
 
   const responseFacebook = (response) => {
+    state = {
+      isLoggedIn: true,
+      userID: response.userID,
+      name: response.name,
+      email: response.email,
+      picture: response.picture.data.url,
+    };
     console.log(response);
   };
-  
+
   let fbContent;
+
   if (state.isLoggedIn) {
+    fbContent = (
+      <div
+        style={{
+          width: "400px",
+          margin: "auto",
+          background: "#f4f4f4",
+          padding: "20px",
+        }}
+      >
+        <img src={state.picture} alt={state.name} />
+        <h2>Bienvenue {state.name}</h2>
+        Email: {state.email}
+      </div>
+    );
   } else {
     fbContent = (
       <FacebookLogin
@@ -30,8 +52,5 @@ const Facebook = () => {
       />
     );
   }
-
-  return <div></div>;
-};
-
-export default Facebook;
+  return <div>{fbContent}</div>;
+}
