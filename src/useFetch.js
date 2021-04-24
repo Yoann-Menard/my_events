@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
@@ -11,7 +11,7 @@ const useFetch = (url) => {
     fetch(url, { signal: abortCont.signal })
       .then((res) => {
         if (!res.ok) {
-          throw Error("Failed to fetch");
+          throw Error('Failed to fetch');
         }
         return res.json();
       })
@@ -21,8 +21,8 @@ const useFetch = (url) => {
         setError(null);
       })
       .catch((error) => {
-        if (error.name === "AbortError") {
-          console.log("fetch aborted");
+        if (error.name === 'AbortError') {
+          console.log('Fetch aborted');
         } else {
           setIsLoading(false);
           setError(error.message);
