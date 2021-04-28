@@ -1,27 +1,29 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-export default function Menu() {
+const Menu = (props) => {
   const [categorie, setCategorie] = useState();
   const [lieu, setLieu] = useState();
 
   const handleClick = (e) => {
     setCategorie(categorie);
     console.log(categorie);
-    console.log("Je clique sur categorie", e);
+    console.log('Je clique sur categorie', e);
   };
 
   const handleInput = (e) => {
     setLieu(lieu);
-    console.log(lieu);
-    console.log("J'écris dans l'input", e);
+    props.search(e.target.value);
   };
+
   return (
-    <div className="filter">
+    <div className='filter'>
       <h2>Filtres</h2>
-      <button onClick={handleClick} className="categories" value="Catégories">
+      <button onClick={handleClick} className='categories' value='Catégories'>
         Catégories
       </button>
-      <input onChange={handleInput} className="Lieu" placeholder="Lieu"></input>
+      <input onChange={handleInput} className='Lieu' placeholder='Lieu'></input>
     </div>
   );
-}
+};
+
+export default Menu;

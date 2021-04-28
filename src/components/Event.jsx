@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 const Event = () => {
   const { id } = useParams();
-  const [myEvents, setmyEvents] = useState({});
+  const [myEvents, setmyEvents] = useState();
 
   fetch(`https://opendata.paris.fr/api/datasets/1.0/${id}`)
     .then((data) => data.json())
@@ -16,6 +16,9 @@ const Event = () => {
           <h2 style={{ color: 'purple' }}>{myEvents?.metas.title}</h2>
           <p style={{ color: 'blue' }}>{myEvents?.metas.publisher}</p>
           <div style={{ color: 'green' }}>{myEvents?.datasetid}</div>
+          <button type='button' className='learnmore'>
+            <Link to={`../home`}>Accueil</Link>
+          </button>
         </article>
       )}
     </div>

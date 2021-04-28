@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
 
 const EventList = (props) => {
-  const events = props.events;
+  let events = props.events;
+  events = events.filter((input) => {
+    if (
+      input.metas.title.toLowerCase().search(props.input.toLowerCase()) !== -1
+    )
+      return true;
+    return false;
+  });
 
   return (
     <div className='event-list'>
